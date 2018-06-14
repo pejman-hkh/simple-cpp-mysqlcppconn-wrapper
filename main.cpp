@@ -1,7 +1,5 @@
 #include <iostream>
 #include "mysqlWrapper.h"
-#include <signal.h>
-#include "utils.h"
 
 mysqlWrapper db;
 
