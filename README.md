@@ -1,4 +1,4 @@
-# simple-cpp-mysqlcppconn-wrapper
+# c++ mysql wrapper
 simple c++ mysql wrapper
 
 # Usage
