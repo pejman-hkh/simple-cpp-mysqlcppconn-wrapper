@@ -61,3 +61,7 @@ int main() {
 # Build
 
 ```g++ main.cpp -lmysqlcppconn```
+
+# Update
+
+- auto connect added ( if prepare faild )
