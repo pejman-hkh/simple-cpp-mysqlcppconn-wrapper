@@ -10,7 +10,7 @@ int main() {
 	db.connect_uc("localhost", "root", "123456" ).switchDb("db_name");
 
 
-	mysqlResult res = db.prepare("SELECT * FROM test_db LIMIT 0,1").execute();
+	mysqlResult res = db.prepare("SELECT * FROM test_table LIMIT 0,1").execute();
 	res.next();
 
 
@@ -18,7 +18,7 @@ int main() {
 
 
 	//update query
-	db.prepare("UPDATE test_db SET title = ? WHERE id = ? ")\
+	db.prepare("UPDATE test_table SET title = ? WHERE id = ? ")\
 	.setString("test it")\
 	.setInt(1)\
 	.execute();
@@ -26,13 +26,13 @@ int main() {
 
 
 	//insert query
-	db.prepare("INSERT INTO test_db(title) VALUES(?)")\
+	db.prepare("INSERT INTO test_table(title) VALUES(?)")\
 	.setString("ttttt")\
 	.execute();
 
 
 	//
-	mysqlResult res1 = db.prepare("SELECT title FROM test_db LIMIT 0,10").execute();
+	mysqlResult res1 = db.prepare("SELECT title FROM test_table LIMIT 0,10").execute();
 	
 	int i = 0;
 	while( res1.next() ) {
@@ -41,7 +41,7 @@ int main() {
 	
 
 		//test nested query		
-		mysqlResult res2 = db.prepare("SELECT title FROM test_db LIMIT ?,1").setInt(i++).execute();
+		mysqlResult res2 = db.prepare("SELECT title FROM test_table LIMIT ?,1").setInt(i++).execute();
 		res2.next();
 
 		std::cout << "res2 result" << res2.getString("title") << std::endl;
