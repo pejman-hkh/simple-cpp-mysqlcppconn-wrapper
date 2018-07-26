@@ -65,3 +65,10 @@ int main() {
 # Update
 
 - auto connect added ( if prepare faild )
+-lambda usage added ( find function )
+
+```
+	db.prepare("SELECT * FROM test_table LIMIT 0,10").find([]( mysqlResult& res ) {
+		std::cout << res.getInt("id") << std::endl;
+	});
+```
