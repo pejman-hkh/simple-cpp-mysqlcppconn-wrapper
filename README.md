@@ -68,8 +68,8 @@ int main() {
 
 - lambda usage added ( find function )
 
-```
-	db.prepare("SELECT * FROM test_table LIMIT 0,10").find([]( mysqlResult& res ) {
-		std::cout << res.getInt("id") << std::endl;
-	});
+```c++
+db.prepare("SELECT * FROM test_table LIMIT 0,10").find([]( mysqlResult& res ) {
+	std::cout << res.getInt("id") << std::endl;
+});
 ```
