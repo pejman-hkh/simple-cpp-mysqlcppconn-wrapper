@@ -65,6 +65,7 @@ int main() {
 # Update
 
 - auto connect added ( if prepare faild )
+
 -lambda usage added ( find function )
 
 ```
