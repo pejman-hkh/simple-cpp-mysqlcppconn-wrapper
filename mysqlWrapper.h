@@ -205,6 +205,17 @@ class mysqlWrapper
             return _is_connected;
         }
 
+        mysqlWrapper& find( void(*callback)(mysqlResult&) ) {
+            mysqlResult res;
+            res.get( prep_stmt );
+
+            while( res.next() ) {
+                callback(res);
+            }
+
+             return *this;
+        }
+
     private:        
         int _wilcard = 0;
         bool _is_connected = false;

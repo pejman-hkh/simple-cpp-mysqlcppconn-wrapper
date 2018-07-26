@@ -5,7 +5,11 @@ mysqlWrapper db;
 
 int main() {
 
-	db.connect_uc("localhost", "root", "123456" ).switchDb("db_name");
+	db.connect_uc("localhost", "root", "123456" ).switchDb("test_db");
+
+	db.prepare("SELECT * FROM test_table LIMIT 0,10").find([]( mysqlResult& res ) {
+		std::cout << res.getInt("id") << std::endl;
+	});
 
 
 	mysqlResult res = db.prepare("SELECT * FROM test_table LIMIT 0,1").execute();
